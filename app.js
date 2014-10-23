@@ -14,6 +14,16 @@ var workout_notifications = require('./routes/workout_notifications');
 var friend_notifications = require('./routes/friend_notifications');
 var app = express();
 
+if (process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
+  connection_string = process.env.OPENSHIFT_MONGODB_DB_USERNAME + ':' +
+        process.env.OPENSHIFT_MONGODB_DB_PASSWORD + '@' +
+        process.env.OPENSHIFT_MONGODB_DB_HOST + ':' +
+        process.env.OPENSHIFT_MONGODB_DB_PORT + '/' +
+        process.env.OPENSHIFT_APP_NAME;
+}
+
+mongoose.connect('mongodb://localhost/BeaveRun');
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -33,7 +43,7 @@ app.use('/groups', groups);
 app.use('/workout_notifications', workout_notifications);
 app.use('/friend_notifications', friend_notifications);
 
-mongodb_connection_string = 'mongodb://127.0.0.1:27017/' + 'beaverRun';
+//mongodb_connection_string = 'mongodb://127.0.0.1:27017/' + 'beaverRun';
 //take advantage of openshift env vars when available:
 /*
 if(process.env.OPENSHIFT_MONGODB_DB_URL){
@@ -41,7 +51,7 @@ if(process.env.OPENSHIFT_MONGODB_DB_URL){
 }
 
 */
-mongoose.connect('mongodb://127.0.0.1:27017/' + 'beaverRun');
+//mongoose.connect('mongodb://127.0.0.1:27017/' + 'beaverRun');
 
 var db = mongoose.connection;
 
@@ -83,5 +93,9 @@ app.use(function(err, req, res, next) {
     });
 });
 
+var port = process.env.OPENSHIFT_NODEJS_PORT;
+var ip = process.env.OPENSHIFT_NODEJS_IP;
+
+app.listen(port || 8080, ip);
 
 module.exports = app;
