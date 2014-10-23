@@ -1,0 +1,134 @@
+<% include header.ejs %>
+<script src="/javascripts/diagnostics.js"></script>
+</head>
+<body>
+<div>
+<h1> Create User</h1>
+<label>Username: </label> <input id="CreateUsername" />
+<label>Email: </label> <input id="CreateEmail" />
+<label>Password: </label> <input type='password' id="CreatePassword" />
+<button id="createAccount" class='btn'>Create Account</button>
+<div id="createMessage"></div>
+</div>
+<div>
+<h1> Login</h1>
+<label>Username: </label> <input id="LoginUsername" />
+<label>Password: </label> <input id="LoginPassword" />
+<button id="login" class='btn'>login</button>
+<div id='loginMessage'></div>
+</div>
+<div>
+<h1> Get Users</h1>
+<button id='getUsers' class='btn'>Get Users</button>
+<div id='userListing'></div>
+</div>
+<div>
+<h1> DeleteUser</h1>
+<label>Username: </label> <input id="DeleteUsername" />
+<button id="deleteUser" class='btn'>Delete</button>
+<div id='deleteMessage'></div>
+</div>
+
+<div>
+<h1> Add Stumps</h1>
+<label>Username: </label> <input id="StumpsUsername" />
+<label>size: </label> <input type='number' id="StumpsVal" />
+<button id="addStumps" class='btn'>Add</button>
+<div id='stumpsMessage'></div>
+</div>
+
+<div>
+<h1> Add Workout</h1>
+<label>Activity: </label> <input id="WorkoutName" />
+<label>Time (minutes): </label> <input type='number' id="WorkoutTime" />
+<label>Location: </label> <input id="WorkoutLocation" />
+<label>Skill Level: </label> <input type='number' max='10' id="WorkoutLevel" />
+<label>Author </label> <input id="WorkoutAuthor" />
+<label>Type (true/false) </label> <input id="WorkoutType" />
+<label>Group? (true/false): </label> <input id="workoutGroup" />
+<button id="addWorkout" class='btn'>Add</button>
+<div id='workoutMessage'></div>
+</div>
+
+<div>
+<h1> Add User to Workout</h1>
+<label>Workout ID: </label> <input id="WorkoutID" />
+<label>User Name: </label> <input id="UserToWorkoutName" />
+<button id="addUserToWorkout" class='btn'>Add</button>
+<div id='userToWorkoutMessage'></div>
+</div>
+
+<div>
+<h1> Delete Workout</h1>
+<label>Time now (integer): </label> <input type = 'number' id="TimeNow" />
+<button id="removeWorkouts" class='btn'>Remove Past Workouts</button>
+<div id='removeWorkoutsMessage'></div>
+</div>
+
+<div>
+<h1> Get Workouts</h1>
+<button id='getWorkouts' class='btn'>Get Workouts</button>
+<div id='workoutListing'></div>
+<div id='getWorkoutsMessage'></div>
+</div>
+
+<div>
+<h1> Add Group </h1>
+<label>Adding User: </label> <input id="AddGroupUsername" />
+<label>Group Name: </label> <input id="Groupname" />
+<label>Description </label> <input id="GroupDescription" />
+<button id="addGroup" class='btn'>Add</button>
+<div id='addGroupMessage'></div>
+</div>
+
+<div>
+<h1> Delete Group </h1>
+<label>Deleting User: </label> <input id="DelGroupUsername" />
+<label>Group Name: </label> <input id="Groupname" />
+<button id="deleteGroup" class='btn'>Delete</button>
+<div id='deleteGroupMessage'></div>
+</div>
+
+<div>
+<h1> Join Group </h1>
+<label> User: </label> <input id="JoiningUsername" />
+<label>Group Name: </label> <input id="JoiningGroupname" />
+<button id="joinGroup" class='btn'>Join</button>
+<div id='deleteGroupMessage'></div>
+</div>
+
+<div>
+<h1> Add Workout Notification to User </h1>
+<label> User_Id: </label> <input id="User_Id" />
+<label> Workout_Id: </label> <input id="Workout_Id" />
+<button id="addWorkoutNotification" class='btn'>Add Workout Notification to User</button>
+<div id='addWorkoutNotificationMessage'></div>
+</div>
+
+<div>
+<h1> Get All Workout Notifications for One User </h1>
+<label> User_Id: </label> <input id="User_Id_WK" />
+<button id="getWorkoutNotifications" class='btn'>Get All Notifications</button>
+<div id='getWorkoutNotificationsMessage'></div>
+</div>
+
+<div>
+<h1> Get One Workout Notifications for One User </h1>
+<label> ID of user: </label> <input id="User_Id_WK_One" />
+<label> ID of notification: </label> <input id="Workout_Id_WK_One" />
+<button id="getWorkoutNotification" class='btn'>Get One Notification</button>
+<div id='getWorkoutNotificationMessage'></div>
+</div>
+
+<div>
+<h1> Respond to Notifications</h1>
+<label> ID of User Responding: </label> <input id="User_Id_Responding" />
+<label> ID of notification: </label> <input id="Notification_Id_Responding" />
+<label> Response (Accepted/Denied): </label> <input id="Notification_Response" />
+<button id="respondWorkoutNotification" class='btn'>Respond to Notification</button>
+<div id='respondWorkoutNotificationMessage'></div>
+</div>
+<br>
+</div>
+
+<% include footer.ejs %>
